@@ -1,0 +1,140 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-IN",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost Sample",
+        "connectionString": "Provider=SQLNCLI11;Data Source=.;Initial Catalog=Sample;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "EMPLOYEE",
+        "columns": [
+          {
+            "name": "EMP_ID",
+            "dataType": "int64",
+            "sourceColumn": "EMP_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EMP_NAME",
+            "dataType": "string",
+            "sourceColumn": "EMP_NAME",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "EMPLOYEE",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[EMPLOYEE].* FROM [dbo].[EMPLOYEE] ",
+              "dataSource": "SqlServer localhost Sample"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[EMPLOYEE].* FROM [dbo].[EMPLOYEE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "EMPLOYEE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "SALES",
+        "columns": [
+          {
+            "name": "SALES_INVOICE_ID",
+            "dataType": "int64",
+            "sourceColumn": "SALES_INVOICE_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EMP_ID",
+            "dataType": "int64",
+            "sourceColumn": "EMP_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SALES_AMOUNT",
+            "dataType": "decimal",
+            "sourceColumn": "SALES_AMOUNT",
+            "formatString": "\"₹\" #,0.00;#,0.00 -\"₹\";\"₹\" #,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"16393\" DisplayName=\"₹ English (India)\" Symbol=\"₹\" PositivePattern=\"2\" NegativePattern=\"12\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SALES_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "SALES_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SALES",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[SALES].* FROM [dbo].[SALES] ",
+              "dataSource": "SqlServer localhost Sample"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[SALES].* FROM [dbo].[SALES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "SALES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "034ab7ad-763c-4193-84e2-66ebb97673ed",
+        "fromTable": "SALES",
+        "fromColumn": "EMP_ID",
+        "toTable": "EMPLOYEE",
+        "toColumn": "EMP_ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
