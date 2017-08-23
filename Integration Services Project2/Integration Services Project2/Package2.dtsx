@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2017 1:35:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-HP02H39"
+  DTS:CreatorName="DESKTOP-HP02H39\kuya"
+  DTS:DTSID="{EADB91D6-2A0F-4E43-9DFA-04AC0A8BDDE4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionGUID="{F3FDFE0B-1905-4221-8765-3310CDDA2C28}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>
